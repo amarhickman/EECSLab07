@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Two - CSS Font Control</title>
+    <style>
+        #paragraph {
+            border-style: solid;
+            border-width: 4px;
+            padding: 5px;
+            background-color: white;
+            border-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Practice Two</h1>
+    <p id="paragraph">Text to be altered.</p>
+
+    <div>
+        <label for="border-r">Border R (0-255):</label>
+        <input type="number" id="border-r" min="0" max="255"><br>
+        
+        <label for="border-g">Border G (0-255):</label>
+        <input type="number" id="border-g" min="0" max="255"><br>
+        
+        <label for="border-b">Border B (0-255):</label>
+        <input type="number" id="border-b" min="0" max="255"><br>
+        
+        <label for="border-width">Border Width:</label>
+        <input type="number" id="border-width" min="1" max="20" value="5"><br>
+
+        <label for="bg-r">Background R (0-255):</label>
+        <input type="number" id="bg-r" min="0" max="255"><br>
+        
+        <label for="bg-g">Background G (0-255):</label>
+        <input type="number" id="bg-g" min="0" max="255"><br>
+        
+        <label for="bg-b">Background B (0-255):</label>
+        <input type="number" id="bg-b" min="0" max="255"><br>
+
+        <button onclick="changeColor()">Change the color!</button>
+    </div>
+
+    <script>
+        function changeColor() {
+            // Get input values
+            const borderR = document.getElementById('border-r').value || 0;
+            const borderG = document.getElementById('border-g').value || 0;
+            const borderB = document.getElementById('border-b').value || 0;
+            const borderWidth = document.getElementById('border-width').value || 5;
+            
+            const bgR = document.getElementById('bg-r').value || 255;
+            const bgG = document.getElementById('bg-g').value || 255;
+            const bgB = document.getElementById('bg-b').value || 255;
+
+            // Construct CSS values
+            const borderColor = `rgb(${borderR}, ${borderG}, ${borderB})`;
+            const backgroundColor = `rgb(${bgR}, ${bgG}, ${bgB})`;
+
+            // Apply styles to the paragraph
+            const paragraph = document.getElementById('paragraph');
+            paragraph.style.borderColor = borderColor;
+            paragraph.style.borderWidth = `${borderWidth}px`;
+            paragraph.style.backgroundColor = backgroundColor;
+        }
+    </script>
+</body>
+</html>
